@@ -45,6 +45,20 @@ Stores historical signals and outcomes, computes performance metrics, and enable
 
 This architecture follows a modular agent-based pattern, where each component is independently testable and can evolve without impacting the overall system.
 
+## Architectural Notes
+
+Kronos Adapter Strategy  
+Kronos is represented through an explicit adapter boundary so forecasting remains interface-driven and swap-ready. This keeps the prediction contract stable while enabling deterministic fallback inference when direct Kronos runtime integration is unavailable or intentionally deferred.
+
+Hermes-Oriented Orchestration  
+Hermes is implemented as an orchestration layer that coordinates modular agents across the full decision lifecycle. This reflects the intended multi-agent control pattern without coupling orchestration concerns to forecasting, reasoning, or risk logic.
+
+Constraint-Aware API Selection  
+Free public APIs are used by design to ensure local reproducibility, zero-cost execution, and predictable operational behavior. This constraint-aware approach favors transparent dependencies and removes hidden infrastructure assumptions.
+
+Deterministic and Fallback Philosophy  
+SignalForge Atlas is intentionally built around deterministic core computation and controlled degradation paths. When external systems are unavailable, safe fallbacks preserve continuity while maintaining bounded, explainable outputs.
+
 ## Design Principles
 
 - Determinism First  

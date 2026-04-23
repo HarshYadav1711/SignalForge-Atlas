@@ -5,7 +5,7 @@ from configs.logging_config import setup_logging
 from configs.settings import get_settings
 from evaluation.metrics import compute_accuracy
 from memory.store import MemoryStore
-from orchestrator.pipeline_runner import run_pipeline
+from orchestrator.hermes_agent import HermesAgent
 
 
 def main() -> None:
@@ -17,7 +17,8 @@ def main() -> None:
 
     logger = logging.getLogger("signalforge_atlas")
     logger.info("Application started", extra={"app_name": settings.app_name})
-    results = run_pipeline(settings)
+    hermes_agent = HermesAgent(settings)
+    results = hermes_agent.run()
     logger.info("Pipeline complete", extra={"records": len(results)})
 
     store = MemoryStore()

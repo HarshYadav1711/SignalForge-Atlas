@@ -22,20 +22,27 @@ def main() -> None:
     logger.info("Pipeline complete", extra={"records": len(results)})
 
     store = MemoryStore()
-    accuracy = compute_accuracy(store.load())
-    primary_signal = results[0] if results else {
-        "asset": "N/A",
-        "prediction": "DOWN",
-        "probability": 0.0,
-        "decision": "SKIP",
-        "position_size": 0.0,
-    }
+    history = store.load()
+    accuracy = compute_accuracy(history)
+    total_trades = len(history)
+    formatted_results = []
+    for signal in results:
+        formatted_results.append(
+            {
+                "asset": signal["asset"],
+                "prediction": signal["prediction"],
+                "probability": round(float(signal["probability"]), 2),
+                "decision": signal["decision"],
+                "position_size": round(float(signal["position_size"]), 2),
+            }
+        )
 
     print("=== SIGNAL OUTPUT ===")
-    print(json.dumps(primary_signal, ensure_ascii=True, indent=2))
+    print(json.dumps(formatted_results, ensure_ascii=True, indent=2))
     print()
     print("=== PERFORMANCE ===")
     print(f"accuracy: {accuracy:.1f}")
+    print(f"total_trades: {total_trades}")
 
 
 if __name__ == "__main__":

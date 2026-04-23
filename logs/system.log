@@ -1,0 +1,1 @@
+{"timestamp": "2026-04-23T14:01:45.151188+00:00", "level": "INFO", "logger": "signalforge_atlas", "message": "Application started", "context": {"taskName": null, "app_name": "SignalForge Atlas", "environment": "development"}}

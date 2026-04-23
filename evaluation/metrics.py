@@ -4,6 +4,7 @@ from memory.schema import MemoryRecord
 
 
 def compute_accuracy(history: list[MemoryRecord]) -> float:
+    """Compute accuracy as correct predictions divided by total records."""
     total = len(history)
     if total == 0:
         return 0.0
@@ -12,6 +13,7 @@ def compute_accuracy(history: list[MemoryRecord]) -> float:
 
 
 def compute_rolling_accuracy(history: list[MemoryRecord], window_size: int) -> float:
+    """Compute accuracy on the trailing window of records."""
     if not history or window_size <= 0:
         return 0.0
     window = history[-window_size:]

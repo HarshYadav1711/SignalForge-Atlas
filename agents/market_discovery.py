@@ -19,6 +19,7 @@ def _asset_from_text(text: str) -> str | None:
 
 
 def discover_polymarket_markets(timeout_seconds: int, retry_attempts: int) -> list[dict[str, Any]]:
+    """Discover BTC/ETH markets from Polymarket with strict field extraction."""
     try:
         payload = fetch_json(
             POLYMARKET_MARKETS_URL,
@@ -26,7 +27,7 @@ def discover_polymarket_markets(timeout_seconds: int, retry_attempts: int) -> li
             retry_attempts=retry_attempts,
         )
     except Exception as exc:
-        LOGGER.exception("Failed to fetch Polymarket markets", exc_info=exc)
+        LOGGER.error("Polymarket request failed: %s", exc)
         return []
 
     if not isinstance(payload, list):
@@ -55,6 +56,7 @@ def discover_polymarket_markets(timeout_seconds: int, retry_attempts: int) -> li
 
 
 def discover_kalshi_markets(timeout_seconds: int, retry_attempts: int) -> list[dict[str, str]]:
+    """Discover BTC/ETH markets from Kalshi, or return safe fallback."""
     fallback = [
         {"title": "BTC 5min up/down", "source": "kalshi"},
         {"title": "ETH 5min up/down", "source": "kalshi"},

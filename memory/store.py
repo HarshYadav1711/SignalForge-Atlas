@@ -7,6 +7,8 @@ from memory.schema import MemoryRecord
 
 
 class MemoryStore:
+    """Append-only JSONL storage for signal history records."""
+
     def __init__(self, path: str = "memory/history.jsonl") -> None:
         self.path = Path(path)
         self.path.parent.mkdir(parents=True, exist_ok=True)
@@ -14,10 +16,12 @@ class MemoryStore:
             self.path.touch()
 
     def append(self, record: MemoryRecord) -> None:
+        """Persist one memory record."""
         with self.path.open("a", encoding="utf-8") as file:
             file.write(json.dumps(record.to_dict(), ensure_ascii=True) + "\n")
 
     def load(self) -> list[MemoryRecord]:
+        """Load all valid historical records from disk."""
         records: list[MemoryRecord] = []
         with self.path.open("r", encoding="utf-8") as file:
             for line in file:

@@ -19,6 +19,7 @@ def fetch_json(
     timeout_seconds: int = 12,
     retry_attempts: int = 3,
 ) -> Any:
+    """Fetch and parse JSON with timeout and retry protection."""
     @_retry_decorator(retry_attempts)
     def _run() -> Any:
         with httpx.Client(timeout=timeout_seconds) as client:

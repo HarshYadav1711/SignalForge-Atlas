@@ -39,3 +39,23 @@
 {"timestamp": "2026-04-23T14:31:21.906024+00:00", "level": "INFO", "logger": "orchestrator.pipeline_runner", "message": "Step 7: evaluate", "context": {"taskName": null, "asset": "ETH"}}
 {"timestamp": "2026-04-23T14:31:21.906330+00:00", "level": "INFO", "logger": "orchestrator.pipeline_runner", "message": "Step 8: store", "context": {"taskName": null, "asset": "ETH"}}
 {"timestamp": "2026-04-23T14:31:21.906823+00:00", "level": "INFO", "logger": "signalforge_atlas", "message": "Pipeline complete", "context": {"taskName": null, "records": 2}}
+{"timestamp": "2026-04-23T14:38:41.784113+00:00", "level": "INFO", "logger": "signalforge_atlas", "message": "Application started", "context": {"taskName": null, "app_name": "SignalForge Atlas"}}
+{"timestamp": "2026-04-23T14:38:41.784408+00:00", "level": "INFO", "logger": "orchestrator.pipeline_runner", "message": "Stage market started", "context": {"taskName": null}}
+{"timestamp": "2026-04-23T14:39:57.961703+00:00", "level": "ERROR", "logger": "agents.market_discovery", "message": "Polymarket request failed: timed out", "context": {"taskName": null}}
+{"timestamp": "2026-04-23T14:40:06.252874+00:00", "level": "WARNING", "logger": "agents.market_discovery", "message": "Kalshi endpoint unavailable, using fallback: timed out", "context": {"taskName": null}}
+{"timestamp": "2026-04-23T14:40:06.252983+00:00", "level": "INFO", "logger": "orchestrator.pipeline_runner", "message": "Stage market complete", "context": {"taskName": null, "market_count": 2}}
+{"timestamp": "2026-04-23T14:40:06.253035+00:00", "level": "INFO", "logger": "orchestrator.pipeline_runner", "message": "Stage data started", "context": {"taskName": null}}
+{"timestamp": "2026-04-23T14:40:07.291745+00:00", "level": "INFO", "logger": "orchestrator.pipeline_runner", "message": "Stage data complete", "context": {"taskName": null}}
+{"timestamp": "2026-04-23T14:40:07.291841+00:00", "level": "INFO", "logger": "orchestrator.pipeline_runner", "message": "Stage prediction", "context": {"taskName": null, "asset": "BTC"}}
+{"timestamp": "2026-04-23T14:40:07.292006+00:00", "level": "INFO", "logger": "orchestrator.pipeline_runner", "message": "Stage reasoning", "context": {"taskName": null, "asset": "BTC"}}
+{"timestamp": "2026-04-23T14:40:10.293562+00:00", "level": "INFO", "logger": "orchestrator.pipeline_runner", "message": "Stage risk", "context": {"taskName": null, "asset": "BTC"}}
+{"timestamp": "2026-04-23T14:40:10.293874+00:00", "level": "INFO", "logger": "orchestrator.pipeline_runner", "message": "Stage simulation", "context": {"taskName": null, "asset": "BTC"}}
+{"timestamp": "2026-04-23T14:40:10.293986+00:00", "level": "INFO", "logger": "orchestrator.pipeline_runner", "message": "Stage evaluation", "context": {"taskName": null, "asset": "BTC"}}
+{"timestamp": "2026-04-23T14:40:10.294467+00:00", "level": "INFO", "logger": "orchestrator.pipeline_runner", "message": "Stage storage", "context": {"taskName": null, "asset": "BTC"}}
+{"timestamp": "2026-04-23T14:40:10.294916+00:00", "level": "INFO", "logger": "orchestrator.pipeline_runner", "message": "Stage prediction", "context": {"taskName": null, "asset": "ETH"}}
+{"timestamp": "2026-04-23T14:40:10.295220+00:00", "level": "INFO", "logger": "orchestrator.pipeline_runner", "message": "Stage reasoning", "context": {"taskName": null, "asset": "ETH"}}
+{"timestamp": "2026-04-23T14:40:13.296988+00:00", "level": "INFO", "logger": "orchestrator.pipeline_runner", "message": "Stage risk", "context": {"taskName": null, "asset": "ETH"}}
+{"timestamp": "2026-04-23T14:40:13.297094+00:00", "level": "INFO", "logger": "orchestrator.pipeline_runner", "message": "Stage simulation", "context": {"taskName": null, "asset": "ETH"}}
+{"timestamp": "2026-04-23T14:40:13.297151+00:00", "level": "INFO", "logger": "orchestrator.pipeline_runner", "message": "Stage evaluation", "context": {"taskName": null, "asset": "ETH"}}
+{"timestamp": "2026-04-23T14:40:13.297539+00:00", "level": "INFO", "logger": "orchestrator.pipeline_runner", "message": "Stage storage", "context": {"taskName": null, "asset": "ETH"}}
+{"timestamp": "2026-04-23T14:40:13.298042+00:00", "level": "INFO", "logger": "signalforge_atlas", "message": "Pipeline complete", "context": {"taskName": null, "records": 2}}

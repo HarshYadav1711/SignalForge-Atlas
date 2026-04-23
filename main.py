@@ -3,18 +3,38 @@ import json
 
 from configs.logging_config import setup_logging
 from configs.settings import get_settings
+from evaluation.metrics import compute_accuracy
+from memory.store import MemoryStore
 from orchestrator.pipeline_runner import run_pipeline
 
 
 def main() -> None:
+    """Run the full pipeline and print demo-ready summary output."""
     settings = get_settings()
     setup_logging(settings.log_level, settings.log_file)
+    logging.getLogger("httpx").setLevel(logging.WARNING)
+    logging.getLogger("httpcore").setLevel(logging.WARNING)
 
     logger = logging.getLogger("signalforge_atlas")
     logger.info("Application started", extra={"app_name": settings.app_name})
     results = run_pipeline(settings)
     logger.info("Pipeline complete", extra={"records": len(results)})
-    print(json.dumps(results, ensure_ascii=True, indent=2))
+
+    store = MemoryStore()
+    accuracy = compute_accuracy(store.load())
+    primary_signal = results[0] if results else {
+        "asset": "N/A",
+        "prediction": "DOWN",
+        "probability": 0.0,
+        "decision": "SKIP",
+        "position_size": 0.0,
+    }
+
+    print("=== SIGNAL OUTPUT ===")
+    print(json.dumps(primary_signal, ensure_ascii=True, indent=2))
+    print()
+    print("=== PERFORMANCE ===")
+    print(f"accuracy: {accuracy:.1f}")
 
 
 if __name__ == "__main__":

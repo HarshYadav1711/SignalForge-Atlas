@@ -12,6 +12,7 @@ def build_memory_record(
     decision: str,
     actual: str,
 ) -> MemoryRecord:
+    """Build a normalized memory record from one pipeline run."""
     normalized_prediction = "UP" if prediction.upper() == "UP" else "DOWN"
     normalized_actual = "UP" if actual.upper() == "UP" else "DOWN"
     return MemoryRecord(
@@ -25,6 +26,7 @@ def build_memory_record(
 
 
 def evaluate_history(history: list[MemoryRecord]) -> dict[str, float]:
+    """Compute core evaluation metrics over a history snapshot."""
     return {
         "accuracy": compute_accuracy(history),
         "rolling_accuracy_20": compute_rolling_accuracy(history, window_size=20),
@@ -32,4 +34,5 @@ def evaluate_history(history: list[MemoryRecord]) -> dict[str, float]:
 
 
 def store_record(store: MemoryStore, record: MemoryRecord) -> None:
+    """Persist one evaluated record to memory storage."""
     store.append(record)

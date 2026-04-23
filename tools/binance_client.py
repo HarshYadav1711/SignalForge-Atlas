@@ -8,6 +8,7 @@ BINANCE_KLINES_URL = "https://api.binance.com/api/v3/klines"
 
 
 def fetch_ohlc(symbol: str, interval: str, limit: int, timeout_seconds: int, retry_attempts: int) -> list[dict[str, float]]:
+    """Fetch OHLC candles from Binance and normalize numeric fields."""
     try:
         payload = fetch_json(
             BINANCE_KLINES_URL,
@@ -16,7 +17,7 @@ def fetch_ohlc(symbol: str, interval: str, limit: int, timeout_seconds: int, ret
             retry_attempts=retry_attempts,
         )
     except Exception as exc:
-        LOGGER.exception("Failed to fetch Binance data for %s", symbol, exc_info=exc)
+        LOGGER.error("Binance request failed for %s: %s", symbol, exc)
         return []
 
     if not isinstance(payload, list):

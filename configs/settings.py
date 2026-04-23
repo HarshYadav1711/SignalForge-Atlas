@@ -5,6 +5,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class AppSettings(BaseSettings):
+    """Application configuration loaded from environment variables."""
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", extra="ignore")
 
     app_name: str = "SignalForge Atlas"
@@ -21,4 +22,5 @@ class AppSettings(BaseSettings):
 
 @lru_cache(maxsize=1)
 def get_settings() -> AppSettings:
+    """Return cached application settings instance."""
     return AppSettings()

@@ -72,6 +72,7 @@ def _request_reasoning(settings: AppSettings, direction: str, probability: float
 
 
 def classify_signal(settings: AppSettings, direction: str, probability: float) -> str:
+    """Classify a model signal using OpenRouter with strict safe fallback."""
     safe_direction = "UP" if str(direction).upper() == "UP" else "DOWN"
     safe_probability = max(0.0, min(1.0, float(probability)))
     try:

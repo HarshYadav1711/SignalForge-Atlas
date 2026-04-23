@@ -5,6 +5,8 @@ from pathlib import Path
 
 
 class JsonFormatter(logging.Formatter):
+    """Format log records as structured JSON."""
+
     def format(self, record: logging.LogRecord) -> str:
         payload = {
             "timestamp": datetime.now(timezone.utc).isoformat(),
@@ -43,6 +45,7 @@ class JsonFormatter(logging.Formatter):
 
 
 def setup_logging(level: str, log_file: str) -> None:
+    """Configure file-first structured logging for the application."""
     Path(log_file).parent.mkdir(parents=True, exist_ok=True)
     formatter = JsonFormatter()
 
@@ -51,6 +54,7 @@ def setup_logging(level: str, log_file: str) -> None:
 
     console_handler = logging.StreamHandler()
     console_handler.setFormatter(formatter)
+    console_handler.setLevel(logging.CRITICAL)
 
     root = logging.getLogger()
     root.handlers.clear()

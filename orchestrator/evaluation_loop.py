@@ -5,17 +5,16 @@ from memory.schema import MemoryRecord
 from memory.store import MemoryStore
 
 
-def record_outcome(
-    store: MemoryStore,
+def build_memory_record(
     asset: str,
     prediction: str,
     probability: float,
     decision: str,
     actual: str,
-) -> dict[str, float]:
+) -> MemoryRecord:
     normalized_prediction = "UP" if prediction.upper() == "UP" else "DOWN"
     normalized_actual = "UP" if actual.upper() == "UP" else "DOWN"
-    record = MemoryRecord(
+    return MemoryRecord(
         asset=asset.upper(),
         prediction=normalized_prediction,
         probability=max(0.0, min(1.0, float(probability))),
@@ -24,9 +23,13 @@ def record_outcome(
         correct=normalized_prediction == normalized_actual,
     )
 
-    store.append(record)
-    history = store.load()
+
+def evaluate_history(history: list[MemoryRecord]) -> dict[str, float]:
     return {
         "accuracy": compute_accuracy(history),
         "rolling_accuracy_20": compute_rolling_accuracy(history, window_size=20),
     }
+
+
+def store_record(store: MemoryStore, record: MemoryRecord) -> None:
+    store.append(record)

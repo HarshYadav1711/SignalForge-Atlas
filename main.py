@@ -41,7 +41,7 @@ def main() -> None:
     print(json.dumps(formatted_results, ensure_ascii=True, indent=2))
     print()
     print("=== PERFORMANCE ===")
-    print(f"accuracy: {accuracy:.1f}")
+    print(f"accuracy: {accuracy:.2f}")
     print(f"total_trades: {total_trades}")
 
 

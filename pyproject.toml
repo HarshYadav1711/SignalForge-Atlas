@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "signalforge-atlas"
+version = "0.1.0"
+description = "Agent-based crypto prediction backend for internship assessment."
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{ name = "SignalForge Atlas Team" }]
+dependencies = [
+  "httpx>=0.27.0",
+  "pydantic>=2.8.0",
+  "pydantic-settings>=2.3.0",
+  "numpy>=1.26.0",
+  "pandas>=2.2.0",
+  "scipy>=1.13.0",
+  "tenacity>=8.3.0",
+  "python-dotenv>=1.0.1",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.2.0",
+  "pytest-cov>=5.0.0",
+  "ruff>=0.5.0",
+]
+
+[project.scripts]
+signalforge-atlas = "signalforge_atlas.main:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["signalforge_atlas*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "signalforge-atlas"
 version = "0.1.0"
-description = "Agent-based crypto prediction backend for internship assessment."
+description = "Backend intelligence system for short-horizon crypto signal generation and risk-aware decisioning"
 readme = "README.md"
 requires-python = ">=3.11"
 authors = [{ name = "SignalForge Atlas Team" }]

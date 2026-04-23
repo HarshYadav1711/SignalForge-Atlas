@@ -20,3 +20,5 @@
 {"asset": "ETH", "prediction": "DOWN", "probability": 0.4295696505340115, "decision": "SKIP", "actual": "UP", "correct": false}
 {"asset": "BTC", "prediction": "UP", "probability": 0.7457973228252864, "decision": "SKIP", "actual": "UP", "correct": true}
 {"asset": "ETH", "prediction": "UP", "probability": 0.655844425325285, "decision": "SKIP", "actual": "DOWN", "correct": false}
+{"asset": "BTC", "prediction": "DOWN", "probability": 0.39719923630782206, "decision": "SKIP", "actual": "DOWN", "correct": true}
+{"asset": "ETH", "prediction": "DOWN", "probability": 0.4998360432581335, "decision": "SKIP", "actual": "UP", "correct": false}

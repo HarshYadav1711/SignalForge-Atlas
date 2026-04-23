@@ -14,6 +14,9 @@ class AppSettings(BaseSettings):
     request_timeout_seconds: int = 12
     request_retry_attempts: int = 3
     binance_kline_limit: int = 500
+    openrouter_api_key: str = ""
+    openrouter_base_url: str = "https://openrouter.ai/api/v1"
+    openrouter_model: str = "meta-llama/llama-3.2-3b-instruct:free"
 
 
 @lru_cache(maxsize=1)

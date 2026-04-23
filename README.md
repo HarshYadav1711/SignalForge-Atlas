@@ -159,6 +159,24 @@ The architecture supports straightforward expansion in several directions:
 
 SignalForge Atlas is built as a foundation for reliable, short-horizon market intelligence. It emphasizes disciplined engineering, transparent logic, and practical extensibility, making it suitable for both experimentation and evolution into more advanced systems.
 
+## Scaling Strategy
+
+SignalForge Atlas is designed with a modular architecture that supports horizontal and functional scaling.
+
+More Assets  
+The system is asset-agnostic. Adding new assets requires only extending the asset list and enabling corresponding market discovery and data ingestion. The existing pipeline automatically processes additional assets without structural changes.
+
+Multi-Horizon Arbitrage  
+The architecture supports extension to multiple prediction horizons. For example, the system can be expanded to compare a 15-minute directional forecast with three consecutive 5-minute predictions to identify internal arbitrage opportunities. This would be implemented by running parallel prediction pipelines across different timeframes and introducing a reconciliation layer.
+
+User Visibility  
+The current system provides structured CLI output and logging for observability. This can be extended into a user-facing layer such as:
+- API endpoints for real-time signal access
+- Dashboard for monitoring predictions and performance
+- Alerting system for high-confidence signals
+
+These extensions can be built without modifying the core pipeline due to the separation of concerns in the current architecture.
+
 ## Environment Configuration
 
 The system supports Apify-based data ingestion via an optional adapter.

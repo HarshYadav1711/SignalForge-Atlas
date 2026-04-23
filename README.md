@@ -158,3 +158,17 @@ The architecture supports straightforward expansion in several directions:
 ## Closing
 
 SignalForge Atlas is built as a foundation for reliable, short-horizon market intelligence. It emphasizes disciplined engineering, transparent logic, and practical extensibility, making it suitable for both experimentation and evolution into more advanced systems.
+
+## Environment Configuration
+
+The system supports Apify-based data ingestion via an optional adapter.
+
+To enable Apify:
+- Create an Apify account
+- Generate an API token
+- Add it to your environment:
+
+APIFY_API_TOKEN=your_token_here
+
+Note:
+Apify integration is optional and not required for local execution.

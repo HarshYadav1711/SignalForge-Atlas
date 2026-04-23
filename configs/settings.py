@@ -11,6 +11,9 @@ class AppSettings(BaseSettings):
     environment: Literal["development", "staging", "production"] = "development"
     log_level: Literal["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"] = "INFO"
     log_file: str = "logs/system.log"
+    request_timeout_seconds: int = 12
+    request_retry_attempts: int = 3
+    binance_kline_limit: int = 500
 
 
 @lru_cache(maxsize=1)

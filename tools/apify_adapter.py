@@ -8,3 +8,6 @@ class ApifyAdapter:
 
     def fetch(self, *args, **kwargs):
         raise NotImplementedError("Apify integration not enabled in local mode")
+
+    def is_available(self):
+        return False

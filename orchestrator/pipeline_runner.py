@@ -10,6 +10,7 @@ from configs.settings import AppSettings
 from memory.store import MemoryStore
 from models.kronos_adapter import KronosAdapter
 from orchestrator.evaluation_loop import build_memory_record, evaluate_history, store_record
+from tools.apify_adapter import ApifyAdapter
 from tools.binance_client import fetch_ohlc
 
 LOGGER = logging.getLogger(__name__)
@@ -33,6 +34,10 @@ def run_pipeline(settings: AppSettings) -> list[dict]:
     outputs: list[dict] = []
     store = MemoryStore()
     adapter = KronosAdapter()
+    apify = ApifyAdapter()
+
+    if apify.is_available():
+        LOGGER.info("Apify integration available but not used in local mode")
 
     # 1) fetch markets
     LOGGER.info("Stage market started")

@@ -41,7 +41,7 @@ Applies constrained LLM-based evaluation to refine raw predictions into actionab
 Converts probabilistic confidence into position sizing using the Kelly criterion, with enforced caps to maintain risk discipline.
 
 6. Evaluation and Memory System  
-Stores historical signals and outcomes, computes performance metrics, and enables feedback-driven iteration.
+Stores historical signals and outcomes in append-only JSONL format, computes performance metrics, and enables feedback-driven iteration.
 
 This architecture follows a modular agent-based pattern, where each component is independently testable and can evolve without impacting the overall system.
 
@@ -82,7 +82,7 @@ The system avoids unnecessary abstractions, UI layers, or external services that
 - Modular agent-based architecture  
 - OpenRouter (free model routing for reasoning layer)  
 - Public APIs for market discovery and price data  
-- Lightweight persistent storage (TinyDB / SQLite)  
+- Lightweight append-only JSONL storage  
 - Standard logging framework for observability  
 
 The system is designed to run fully locally without requiring paid services or proprietary infrastructure.

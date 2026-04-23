@@ -8,7 +8,7 @@ from agents.reasoning_agent import classify_signal
 from agents.risk_agent import kelly_fraction
 from configs.settings import AppSettings
 from memory.store import MemoryStore
-from models.prediction_engine import predict_direction
+from models.kronos_adapter import KronosAdapter
 from orchestrator.evaluation_loop import build_memory_record, evaluate_history, store_record
 from tools.binance_client import fetch_ohlc
 
@@ -32,6 +32,7 @@ def run_pipeline(settings: AppSettings) -> list[dict]:
     """Execute the isolated 8-step signal pipeline with graceful degradation."""
     outputs: list[dict] = []
     store = MemoryStore()
+    adapter = KronosAdapter()
 
     # 1) fetch markets
     LOGGER.info("Stage market started")
@@ -93,7 +94,7 @@ def run_pipeline(settings: AppSettings) -> list[dict]:
         # 3) predict
         LOGGER.info("Stage prediction", extra={"asset": asset})
         try:
-            prediction_output = predict_direction(candles)
+            prediction_output = adapter.predict(candles)
             prediction = str(prediction_output["direction"])
             probability = float(prediction_output["probability"])
         except Exception as exc:

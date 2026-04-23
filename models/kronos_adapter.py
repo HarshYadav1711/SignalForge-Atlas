@@ -1,11 +1,13 @@
-from __future__ import annotations
-
 from models.prediction_engine import predict_direction
 
 
 class KronosAdapter:
-    """This adapter simulates Kronos inference using a deterministic fallback model"""
+    """
+    Kronos-compatible adapter for forecasting.
 
-    def predict(self, candles: list[dict]) -> dict[str, float | str]:
-        """Return prediction output using the existing deterministic engine."""
+    This adapter preserves the expected Kronos interface while using a
+    deterministic fallback model for local inference.
+    """
+
+    def predict(self, candles):
         return predict_direction(candles)

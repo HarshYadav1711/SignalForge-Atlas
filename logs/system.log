@@ -194,3 +194,26 @@
 {"timestamp": "2026-04-23T15:37:15.822478+00:00", "level": "INFO", "logger": "orchestrator.pipeline_runner", "message": "Stage storage", "context": {"taskName": null, "asset": "ETH"}}
 {"timestamp": "2026-04-23T15:37:15.822802+00:00", "level": "INFO", "logger": "orchestrator.hermes_agent", "message": "Hermes agent execution completed", "context": {"taskName": null}}
 {"timestamp": "2026-04-23T15:37:15.822886+00:00", "level": "INFO", "logger": "signalforge_atlas", "message": "Pipeline complete", "context": {"taskName": null, "records": 2}}
+{"timestamp": "2026-04-23T15:41:08.394295+00:00", "level": "INFO", "logger": "signalforge_atlas", "message": "Application started", "context": {"taskName": null, "app_name": "SignalForge Atlas"}}
+{"timestamp": "2026-04-23T15:41:08.394420+00:00", "level": "INFO", "logger": "orchestrator.hermes_agent", "message": "Hermes agent initialized", "context": {"taskName": null}}
+{"timestamp": "2026-04-23T15:41:08.394475+00:00", "level": "INFO", "logger": "orchestrator.hermes_agent", "message": "Hermes agent execution started", "context": {"taskName": null}}
+{"timestamp": "2026-04-23T15:41:08.394693+00:00", "level": "INFO", "logger": "orchestrator.pipeline_runner", "message": "Stage market started", "context": {"taskName": null}}
+{"timestamp": "2026-04-23T15:42:24.150194+00:00", "level": "ERROR", "logger": "agents.market_discovery", "message": "Polymarket request failed: timed out", "context": {"taskName": null}}
+{"timestamp": "2026-04-23T15:42:32.370944+00:00", "level": "WARNING", "logger": "agents.market_discovery", "message": "Kalshi endpoint unavailable, using fallback: timed out", "context": {"taskName": null}}
+{"timestamp": "2026-04-23T15:42:32.371046+00:00", "level": "INFO", "logger": "orchestrator.pipeline_runner", "message": "Stage market complete", "context": {"taskName": null, "market_count": 2}}
+{"timestamp": "2026-04-23T15:42:32.371099+00:00", "level": "INFO", "logger": "orchestrator.pipeline_runner", "message": "Stage data started", "context": {"taskName": null}}
+{"timestamp": "2026-04-23T15:42:33.319961+00:00", "level": "INFO", "logger": "orchestrator.pipeline_runner", "message": "Stage data complete", "context": {"taskName": null}}
+{"timestamp": "2026-04-23T15:42:33.320046+00:00", "level": "INFO", "logger": "orchestrator.pipeline_runner", "message": "Stage prediction", "context": {"taskName": null, "asset": "BTC"}}
+{"timestamp": "2026-04-23T15:42:33.320196+00:00", "level": "INFO", "logger": "orchestrator.pipeline_runner", "message": "Stage reasoning", "context": {"taskName": null, "asset": "BTC"}}
+{"timestamp": "2026-04-23T15:42:39.343306+00:00", "level": "INFO", "logger": "orchestrator.pipeline_runner", "message": "Stage risk", "context": {"taskName": null, "asset": "BTC"}}
+{"timestamp": "2026-04-23T15:42:39.343424+00:00", "level": "INFO", "logger": "orchestrator.pipeline_runner", "message": "Stage simulation", "context": {"taskName": null, "asset": "BTC"}}
+{"timestamp": "2026-04-23T15:42:39.343476+00:00", "level": "INFO", "logger": "orchestrator.pipeline_runner", "message": "Stage evaluation", "context": {"taskName": null, "asset": "BTC"}}
+{"timestamp": "2026-04-23T15:42:39.343818+00:00", "level": "INFO", "logger": "orchestrator.pipeline_runner", "message": "Stage storage", "context": {"taskName": null, "asset": "BTC"}}
+{"timestamp": "2026-04-23T15:42:39.344178+00:00", "level": "INFO", "logger": "orchestrator.pipeline_runner", "message": "Stage prediction", "context": {"taskName": null, "asset": "ETH"}}
+{"timestamp": "2026-04-23T15:42:39.344431+00:00", "level": "INFO", "logger": "orchestrator.pipeline_runner", "message": "Stage reasoning", "context": {"taskName": null, "asset": "ETH"}}
+{"timestamp": "2026-04-23T15:42:45.402161+00:00", "level": "INFO", "logger": "orchestrator.pipeline_runner", "message": "Stage risk", "context": {"taskName": null, "asset": "ETH"}}
+{"timestamp": "2026-04-23T15:42:45.402315+00:00", "level": "INFO", "logger": "orchestrator.pipeline_runner", "message": "Stage simulation", "context": {"taskName": null, "asset": "ETH"}}
+{"timestamp": "2026-04-23T15:42:45.402372+00:00", "level": "INFO", "logger": "orchestrator.pipeline_runner", "message": "Stage evaluation", "context": {"taskName": null, "asset": "ETH"}}
+{"timestamp": "2026-04-23T15:42:45.402825+00:00", "level": "INFO", "logger": "orchestrator.pipeline_runner", "message": "Stage storage", "context": {"taskName": null, "asset": "ETH"}}
+{"timestamp": "2026-04-23T15:42:45.403266+00:00", "level": "INFO", "logger": "orchestrator.hermes_agent", "message": "Hermes agent execution completed", "context": {"taskName": null}}
+{"timestamp": "2026-04-23T15:42:45.403331+00:00", "level": "INFO", "logger": "signalforge_atlas", "message": "Pipeline complete", "context": {"taskName": null, "records": 2}}
